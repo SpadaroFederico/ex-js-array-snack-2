@@ -13,18 +13,18 @@
 async function getBooks(ids){
     const promises = ids.map((id) => {
         return fetch(`http://localhost:5000/books/${id}`)
-            .then(response => response.json())
-            .catch(error => console.error("Errore nella fetch:", error));
+        .then(res => res.json())
+        .catch(error => console.error("Errore nella fetch:", error))
     });
-    
-const books = await Promise.all(promises)
-return books;
+
+    const books = await Promise.all(promises)
+    return books;
 }
 
 getBooks([2, 13, 7, 21, 19])
-.then((books) => {
-    console.log(books);
+.then((books) =>{ 
+console.log(books)
 });
-    
+
 
 
